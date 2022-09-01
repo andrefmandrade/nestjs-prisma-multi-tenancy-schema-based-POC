@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: poc
+    restart: always
+    tty: true
+    ports:
+      - '5432:5432'
+    volumes:
+      - poc-db-data:/var/lib/postgres
+    environment:
+      POSTGRES_DB: poc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: poc-pw
+
+volumes:
+  poc-db-data:
+    external: false
